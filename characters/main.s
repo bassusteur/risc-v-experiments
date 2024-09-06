@@ -1,6 +1,6 @@
 init: 
-    addi t3, x0, 2      # x limit
-    addi t4, x0, 5      # y limit   
+    addi t3, x0, 8      # x limit
+    addi t4, x0, 8      # y limit   
 
     la s1, pixel
     lw zero, 0(s1)      # clear word
@@ -10,7 +10,7 @@ init:
 inc:
     beq t0, t3, 8        # branch if >= t3 - pc +8 x
     addi t0, t0, 1       # x counter increase
-    beq t0, t3, 12
+    #beq t0, t3, 12
 
     beq t1, t4, -4       # branch if >= t4 - pc -4 y
     addi t1, t1, 1       # y counter increase
