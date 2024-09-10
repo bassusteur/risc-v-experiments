@@ -1,0 +1,137 @@
+
+main.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <inc-0x24>:
+   0:	4801                	li	x16,0
+   2:	4881                	li	x17,0
+   4:	10000937          	lui	x18,0x10000
+   8:	40004eb7          	lui	x29,0x40004
+   c:	6e3d                	lui	x28,0xf
+   e:	0ffe0e13          	add	x28,x28,255 # f0ff <char_limit+0xef0b>
+  12:	01cea023          	sw	x28,0(x29) # 40004000 <color_n>
+  16:	1f400293          	li	x5,500
+  1a:	00000417          	auipc	x8,0x0
+  1e:	02e40413          	add	x8,x8,46 # 48 <meow>
+  22:	a831                	j	3e <putc>
+
+00000024 <inc>:
+  24:	00000417          	auipc	x8,0x0
+  28:	02440413          	add	x8,x8,36 # 48 <meow>
+  2c:	0905                	add	x18,x18,1 # 10000001 <characters+0x1>
+  2e:	0805                	add	x16,x16,1
+  30:	0305                	add	x6,x6,1
+  32:	941a                	add	x8,x8,x6
+  34:	00535363          	bge	x6,x5,3a <clear>
+  38:	a019                	j	3e <putc>
+
+0000003a <clear>:
+  3a:	0001                	nop
+  3c:	bffd                	j	3a <clear>
+
+0000003e <putc>:
+  3e:	00040403          	lb	x8,0(x8)
+  42:	00890023          	sb	x8,0(x18)
+  46:	bff9                	j	24 <inc>
+
+00000048 <meow>:
+  48:	656d                	lui	x10,0x1b
+  4a:	3a20776f          	jal	x14,73ec <char_limit+0x71f8>
+  4e:	656d2033          	.4byte	0x656d2033
+  52:	6d20776f          	jal	x14,7724 <char_limit+0x7530>
+  56:	7272                	.2byte	0x7272
+  58:	2070                	.2byte	0x2070
+  5a:	796e                	.2byte	0x796e
+  5c:	6161                	add	x2,x2,80
+  5e:	2061                	jal	e6 <meow+0x9e>
+  60:	656d                	lui	x10,0x1b
+  62:	6d20776f          	jal	x14,7734 <char_limit+0x7540>
+  66:	7272                	.2byte	0x7272
+  68:	7070                	.2byte	0x7070
+  6a:	2070                	.2byte	0x2070
+  6c:	333a                	.2byte	0x333a
+  6e:	20333333          	.4byte	0x20333333
+  72:	656d                	lui	x10,0x1b
+  74:	202e776f          	jal	x14,e7276 <char_limit+0xe7082>
+  78:	656d                	lui	x10,0x1b
+  7a:	3a20776f          	jal	x14,741c <char_limit+0x7228>
+  7e:	656d2033          	.4byte	0x656d2033
+  82:	6d20776f          	jal	x14,7754 <char_limit+0x7560>
+  86:	7272                	.2byte	0x7272
+  88:	2070                	.2byte	0x2070
+  8a:	796e                	.2byte	0x796e
+  8c:	6161                	add	x2,x2,80
+  8e:	2061                	jal	116 <meow+0xce>
+  90:	656d                	lui	x10,0x1b
+  92:	6d20776f          	jal	x14,7764 <char_limit+0x7570>
+  96:	7272                	.2byte	0x7272
+  98:	7070                	.2byte	0x7070
+  9a:	2070                	.2byte	0x2070
+  9c:	333a                	.2byte	0x333a
+  9e:	20333333          	.4byte	0x20333333
+  a2:	656d                	lui	x10,0x1b
+  a4:	202e776f          	jal	x14,e72a6 <char_limit+0xe70b2>
+  a8:	656d                	lui	x10,0x1b
+  aa:	3a20776f          	jal	x14,744c <char_limit+0x7258>
+  ae:	656d2033          	.4byte	0x656d2033
+  b2:	6d20776f          	jal	x14,7784 <char_limit+0x7590>
+  b6:	7272                	.2byte	0x7272
+  b8:	2070                	.2byte	0x2070
+  ba:	796e                	.2byte	0x796e
+  bc:	6161                	add	x2,x2,80
+  be:	2061                	jal	146 <meow+0xfe>
+  c0:	656d                	lui	x10,0x1b
+  c2:	6d20776f          	jal	x14,7794 <char_limit+0x75a0>
+  c6:	7272                	.2byte	0x7272
+  c8:	7070                	.2byte	0x7070
+  ca:	2070                	.2byte	0x2070
+  cc:	333a                	.2byte	0x333a
+  ce:	20333333          	.4byte	0x20333333
+  d2:	656d                	lui	x10,0x1b
+  d4:	202e776f          	jal	x14,e72d6 <char_limit+0xe70e2>
+  d8:	656d                	lui	x10,0x1b
+  da:	3a20776f          	jal	x14,747c <char_limit+0x7288>
+  de:	656d2033          	.4byte	0x656d2033
+  e2:	6d20776f          	jal	x14,77b4 <char_limit+0x75c0>
+  e6:	7272                	.2byte	0x7272
+  e8:	2070                	.2byte	0x2070
+  ea:	796e                	.2byte	0x796e
+  ec:	6161                	add	x2,x2,80
+  ee:	2061                	jal	176 <meow+0x12e>
+  f0:	656d                	lui	x10,0x1b
+  f2:	6d20776f          	jal	x14,77c4 <char_limit+0x75d0>
+  f6:	7272                	.2byte	0x7272
+  f8:	7070                	.2byte	0x7070
+  fa:	2070                	.2byte	0x2070
+  fc:	333a                	.2byte	0x333a
+  fe:	20333333          	.4byte	0x20333333
+ 102:	656d                	lui	x10,0x1b
+ 104:	202e776f          	jal	x14,e7306 <char_limit+0xe7112>
+ 108:	0000                	unimp
+	...
+
+Disassembly of section .riscv.attributes:
+
+00000000 <.riscv.attributes>:
+   0:	2c41                	jal	290 <char_limit+0x9c>
+   2:	0000                	unimp
+   4:	7200                	.2byte	0x7200
+   6:	7369                	lui	x6,0xffffa
+   8:	01007663          	bgeu	x0,x16,14 <inc-0x10>
+   c:	0022                	c.slli	x0,0x8
+   e:	0000                	unimp
+  10:	7205                	lui	x4,0xfffe1
+  12:	3376                	.2byte	0x3376
+  14:	6932                	.2byte	0x6932
+  16:	7032                	.2byte	0x7032
+  18:	5f30                	lw	x12,120(x14)
+  1a:	326d                	jal	fffff9c4 <color_n+0xbfffb9c4>
+  1c:	3070                	.2byte	0x3070
+  1e:	635f 7032 5f30      	.byte	0x5f, 0x63, 0x32, 0x70, 0x30, 0x5f
+  24:	6d7a                	.2byte	0x6d7a
+  26:	756d                	lui	x10,0xffffb
+  28:	316c                	.2byte	0x316c
+  2a:	3070                	.2byte	0x3070
+	...

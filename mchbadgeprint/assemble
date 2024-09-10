@@ -1,0 +1,9 @@
+#!/bin/sh
+
+riscv64-linux-gnu-as main.s -o main.o -march=rv32im
+riscv64-linux-gnu-ld -o main.elf -T memmap main.o -m elf32lriscv
+riscv64-linux-gnu-objdump -Mnumeric -D main.elf > main.list
+riscv64-linux-gnu-objcopy main.elf main.bin -O binary
+
+ls -l *.bin
+md5sum *.bin
